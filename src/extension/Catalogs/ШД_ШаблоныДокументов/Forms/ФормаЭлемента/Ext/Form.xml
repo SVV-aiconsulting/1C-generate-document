@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.21">
+	<Width>100</Width>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
+		<Event name="AfterWriteAtServer">ПослеЗаписиНаСервере</Event>
+		<Event name="AfterWrite">ПослеЗаписи</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Наименование" id="1">
+			<DataPath>Объект.Description</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Наименование документа</v8:content>
+				</v8:item>
+			</Title>
+			<AutoMarkIncomplete>true</AutoMarkIncomplete>
+			<ContextMenu name="НаименованиеКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<UsualGroup name="ГруппаФайл" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Файл шаблона (Word .docx)</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>NormalSeparation</Representation>
+			<ShowTitle>true</ShowTitle>
+			<ExtendedTooltip name="ГруппаФайлРасширеннаяПодсказка" id="5"/>
+			<ChildItems>
+				<LabelField name="ОписаниеФайла" id="6">
+					<DataPath>ОписаниеФайла</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<ContextMenu name="ОписаниеФайлаКонтекстноеМеню" id="7"/>
+					<ExtendedTooltip name="ОписаниеФайлаРасширеннаяПодсказка" id="8"/>
+				</LabelField>
+				<UsualGroup name="ГруппаКомандыФайла" id="9">
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаКомандыФайлаРасширеннаяПодсказка" id="10"/>
+					<ChildItems>
+						<Button name="ЗагрузитьФайл" id="11">
+							<Type>UsualButton</Type>
+							<CommandName>Form.Command.ЗагрузитьФайл</CommandName>
+							<ExtendedTooltip name="ЗагрузитьФайлРасширеннаяПодсказка" id="12"/>
+						</Button>
+						<Button name="ОткрытьФайл" id="13">
+							<Type>UsualButton</Type>
+							<CommandName>Form.Command.ОткрытьФайл</CommandName>
+							<ExtendedTooltip name="ОткрытьФайлРасширеннаяПодсказка" id="14"/>
+						</Button>
+						<Button name="СохранитьФайл" id="15">
+							<Type>UsualButton</Type>
+							<CommandName>Form.Command.СохранитьФайл</CommandName>
+							<ExtendedTooltip name="СохранитьФайлРасширеннаяПодсказка" id="16"/>
+						</Button>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="ШаблонИмениФайла" id="17">
+			<DataPath>Объект.ШаблонИмениФайла</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Имя формируемого файла</v8:content>
+				</v8:item>
+			</Title>
+			<InputHint>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Например: Договор № {{Договор.Номер}} {{Контрагент.Наименование}}</v8:content>
+				</v8:item>
+			</InputHint>
+			<ContextMenu name="ШаблонИмениФайлаКонтекстноеМеню" id="18"/>
+			<ExtendedTooltip name="ШаблонИмениФайлаРасширеннаяПодсказка" id="19"/>
+		</InputField>
+		<Pages name="Страницы" id="20">
+			<ExtendedTooltip name="СтраницыРасширеннаяПодсказка" id="21"/>
+			<ChildItems>
+				<Page name="СтраницаПараметры" id="22">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Параметры шаблона</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="СтраницаПараметрыРасширеннаяПодсказка" id="23"/>
+					<ChildItems>
+						<LabelDecoration name="ПодсказкаПараметры" id="24">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Параметры - это поля шаблона, которые программа не заполняет сама (их нет на закладке «Доступные поля»). Значение по умолчанию может содержать поля, например {{Документ.Дата|+4Г}}; несколько вариантов разделяются «||» - берется первый непустой.</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ПодсказкаПараметрыКонтекстноеМеню" id="25"/>
+							<ExtendedTooltip name="ПодсказкаПараметрыРасширеннаяПодсказка" id="26"/>
+						</LabelDecoration>
+						<Table name="Параметры" id="27">
+							<Representation>List</Representation>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<DataPath>Объект.Параметры</DataPath>
+							<ContextMenu name="ПараметрыКонтекстноеМеню" id="28"/>
+							<AutoCommandBar name="ПараметрыКоманднаяПанель" id="29">
+								<ChildItems>
+									<Button name="ПараметрыЗаполнитьПоШаблону" id="30">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ЗаполнитьПараметрыПоШаблону</CommandName>
+										<ExtendedTooltip name="ПараметрыЗаполнитьПоШаблонуРасширеннаяПодсказка" id="31"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ПараметрыРасширеннаяПодсказка" id="32"/>
+							<SearchStringAddition name="ПараметрыСтрокаПоиска" id="33">
+								<AdditionSource>
+									<Item>Параметры</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПараметрыСтрокаПоискаКонтекстноеМеню" id="34"/>
+								<ExtendedTooltip name="ПараметрыСтрокаПоискаРасширеннаяПодсказка" id="35"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ПараметрыСостояниеПросмотра" id="36">
+								<AdditionSource>
+									<Item>Параметры</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ПараметрыСостояниеПросмотраКонтекстноеМеню" id="37"/>
+								<ExtendedTooltip name="ПараметрыСостояниеПросмотраРасширеннаяПодсказка" id="38"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ПараметрыУправлениеПоиском" id="39">
+								<AdditionSource>
+									<Item>Параметры</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ПараметрыУправлениеПоискомКонтекстноеМеню" id="40"/>
+								<ExtendedTooltip name="ПараметрыУправлениеПоискомРасширеннаяПодсказка" id="41"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="ПараметрыНомерСтроки" id="42">
+									<DataPath>Объект.Параметры.LineNumber</DataPath>
+									<Width>3</Width>
+									<ContextMenu name="ПараметрыНомерСтрокиКонтекстноеМеню" id="43"/>
+									<ExtendedTooltip name="ПараметрыНомерСтрокиРасширеннаяПодсказка" id="44"/>
+								</LabelField>
+								<InputField name="ПараметрыИмя" id="45">
+									<DataPath>Объект.Параметры.Имя</DataPath>
+									<Width>20</Width>
+									<ContextMenu name="ПараметрыИмяКонтекстноеМеню" id="46"/>
+									<ExtendedTooltip name="ПараметрыИмяРасширеннаяПодсказка" id="47"/>
+								</InputField>
+								<InputField name="ПараметрыПредставление" id="48">
+									<DataPath>Объект.Параметры.Представление</DataPath>
+									<Width>25</Width>
+									<ContextMenu name="ПараметрыПредставлениеКонтекстноеМеню" id="49"/>
+									<ExtendedTooltip name="ПараметрыПредставлениеРасширеннаяПодсказка" id="50"/>
+								</InputField>
+								<InputField name="ПараметрыЗначениеПоУмолчанию" id="51">
+									<DataPath>Объект.Параметры.ЗначениеПоУмолчанию</DataPath>
+									<Width>30</Width>
+									<ContextMenu name="ПараметрыЗначениеПоУмолчаниюКонтекстноеМеню" id="52"/>
+									<ExtendedTooltip name="ПараметрыЗначениеПоУмолчаниюРасширеннаяПодсказка" id="53"/>
+								</InputField>
+								<CheckBoxField name="ПараметрыЗапоминать" id="54">
+									<DataPath>Объект.Параметры.Запоминать</DataPath>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ПараметрыЗапоминатьКонтекстноеМеню" id="55"/>
+									<ExtendedTooltip name="ПараметрыЗапоминатьРасширеннаяПодсказка" id="56"/>
+								</CheckBoxField>
+								<CheckBoxField name="ПараметрыПроверять" id="67">
+									<DataPath>Объект.Параметры.Проверять</DataPath>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ПараметрыПроверятьКонтекстноеМеню" id="68"/>
+									<ExtendedTooltip name="ПараметрыПроверятьРасширеннаяПодсказка" id="69"/>
+								</CheckBoxField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаДоступныеПоля" id="57">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Доступные поля</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="СтраницаДоступныеПоляРасширеннаяПодсказка" id="58"/>
+					<ChildItems>
+						<InputField name="СправкаПоПолям" id="59">
+							<DataPath>СправкаПоПолям</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<TitleLocation>None</TitleLocation>
+							<MultiLine>true</MultiLine>
+							<Height>15</Height>
+							<ContextMenu name="СправкаПоПолямКонтекстноеМеню" id="60"/>
+							<ExtendedTooltip name="СправкаПоПолямРасширеннаяПодсказка" id="61"/>
+						</InputField>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаОписание" id="62">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Описание</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="СтраницаОписаниеРасширеннаяПодсказка" id="63"/>
+					<ChildItems>
+						<InputField name="Описание" id="64">
+							<DataPath>Объект.Описание</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<MultiLine>true</MultiLine>
+							<Height>5</Height>
+							<ContextMenu name="ОписаниеКонтекстноеМеню" id="65"/>
+							<ExtendedTooltip name="ОписаниеРасширеннаяПодсказка" id="66"/>
+						</InputField>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.ШД_ШаблоныДокументов</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="АдресФайлаШаблона" id="2">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ФайлШаблонаИзменен" id="3">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОписаниеФайла" id="4">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="СправкаПоПолям" id="5">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ЗагрузитьФайл" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Загрузить из файла...</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Загрузить шаблон из файла Word (.docx)</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗагрузитьФайл</Action>
+		</Command>
+		<Command name="ОткрытьФайл" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть для редактирования</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть шаблон в Word. После сохранения и закрытия Word изменения попадут в шаблон.</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОткрытьФайл</Action>
+		</Command>
+		<Command name="СохранитьФайл" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить в файл...</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить файл шаблона на компьютер</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СохранитьФайл</Action>
+		</Command>
+		<Command name="ЗаполнитьПараметрыПоШаблону" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Найти параметры в шаблоне</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить в список поля из файла шаблона, которые программа не заполняет автоматически</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗаполнитьПараметрыПоШаблону</Action>
+		</Command>
+	</Commands>
+</Form>
